@@ -1,0 +1,30 @@
+#!/bin/bash
+#SBATCH --time=00:20:00           # Walltime in hh:mm:ss
+#SBATCH --nodes=1               # Number of nodes
+#SBATCH --exclusive
+#SBATCH --job-name=scorep
+#SBATCH --partition=g100_usr_dbg
+##SBATCH -q g100_qos_dbg
+#SBATCH --cpus-per-task=1
+
+module purge
+source modules.sh
+module list
+
+make
+
+export SCOREP_ENABLE_TRACING=OFF
+export SCOREP_ENABLE_PROFILING=ON
+export SCOREP_EXPERIMENT_DIRECTORY=scorep_run
+export SCOREP_METRIC_PAPI=PAPI_TOT_INS,PAPI_TOT_CYC
+
+
+pool=( 20 )
+
+for i in "${pool[@]}"
+do
+        scalasca -analyze -f filter.file srun --cpu-bind=cores --cpus-per-task=$SLURM_CPUS_PER_TASK -n $i exe 10 10000
+	echo "done"
+	wait
+done
+

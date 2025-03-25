@@ -1,0 +1,39 @@
+ 
+:: WARNING: setvars.sh has already been run. Skipping re-execution.
+   To force a re-execution of setvars.sh, use the '--force' option.
+   Using '--force' can result in excessive use of your environment variables.
+  
+usage: source setvars.sh [--force] [--config=file] [--help] [...]
+  --force        Force setvars.sh to re-run, doing so may overload environment.
+  --config=file  Customize env vars using a setvars.sh configuration file.
+  --help         Display this help message and exit.
+  ...            Additional args are passed to individual env/vars.sh scripts
+                 and should follow this script's arguments.
+  
+  Some POSIX shells do not accept command-line options. In that case, you can pass
+  command-line options via the SETVARS_ARGS environment variable. For example:
+  
+  $ SETVARS_ARGS="ia32 --config=config.txt" ; export SETVARS_ARGS
+  $ . path/to/setvars.sh
+  
+  The SETVARS_ARGS environment variable is cleared on exiting setvars.sh.
+  
+make: Nothing to be done for 'all'.
+ Scale factor =  10, iterations =  10000, tolerance =   0.000    
+ Running CFD on  640 x  640 grid using   20 process(es)
+ 
+ Starting main loop ...
+ 
+ 
+ ... finished
+ 
+ After     10000 iterations, error is  0.2074E-03
+ Time for  10000 iterations was  0.3172     seconds
+ Each individual iteration took  0.3172E-04 seconds
+ 
+ Writing output file ...
+[0] Intel(R) Trace Collector INFO: Writing tracefile exe.stf in /g100_work/cin_staff/lbellen1/courses_genrepos/profiling-tutorial-mhpc/4.itac
+  ... finished
+ 
+ CFD completed
+ 

@@ -1,0 +1,42 @@
+
+Estimated aggregate size of event trace:                   71MB
+Estimated requirements for largest trace buffer (max_buf): 3665kB
+Estimated memory requirements (SCOREP_TOTAL_MEMORY):       6MB
+(hint: When tracing set SCOREP_TOTAL_MEMORY=6MB to avoid intermediate flushes
+ or reduce requirements using USR regions filters.)
+
+flt     type max_buf[B]    visits time[s] time[%] time/visit[us]  region
+ -       ALL  5,227,177 2,838,917   31.83   100.0          11.21  ALL
+ -       MPI  2,540,960   600,416   26.72    83.9          44.49  MPI
+ -       USR  2,446,104 2,038,401    3.56    11.2           1.75  USR
+ -       COM    240,096   200,080    1.55     4.9           7.74  COM
+ -    SCOREP         41        20    0.01     0.0         256.88  SCOREP
+
+ *       ALL  3,752,617 1,610,117   31.75    99.8          19.72  ALL-FLT
+ -       MPI  2,540,960   600,416   26.72    83.9          44.49  MPI-FLT
+ +       FLT  1,474,560 1,228,800    0.08     0.2           0.06  FLT
+ *       USR    971,544   809,601    3.48    10.9           4.30  USR-FLT
+ *       COM    240,096   200,080    1.55     4.9           7.74  COM-FLT
+ -    SCOREP         41        20    0.01     0.0         256.88  SCOREP-FLT
+
+ -       MPI  1,880,188   360,036    1.30     4.1           3.61  MPI_Sendrecv
+ +       USR  1,474,560 1,228,800    0.08     0.2           0.06  cfdio.colfunc_
+ -       MPI    660,066   200,020    2.47     7.8          12.35  MPI_Allreduce
+ -       MPI    592,301    20,040    0.10     0.3           4.94  MPI_Recv
+ -       MPI    590,059    20,002    0.01     0.0           0.63  MPI_Send
+ -       USR    491,520   409,600    0.11     0.3           0.27  cfdio.hue2rgb_
+ -       COM    240,024   200,020    0.06     0.2           0.28  boundary.haloswap_
+ -       USR    240,000   200,000    1.83     5.8           9.17  jacobi.jacobistep_
+ -       USR    240,000   200,000    1.54     4.8           7.69  jacobi.deltasq_
+ -       MPI        264        80    0.01     0.0         136.70  MPI_Bcast
+ -       MPI        132        40    0.01     0.0         159.19  MPI_Barrier
+ -       MPI        118        38    4.94    15.5      129932.66  MPI_Ssend
+ -       MPI         72        60    0.00     0.0           1.01  MPI_Comm_rank
+ -       MPI         72        60    0.00     0.0           0.25  MPI_Comm_size
+ -    SCOREP         41        20    0.01     0.0         256.88  exe
+ -       MPI         24        20    4.87    15.3      243409.90  MPI_Finalize
+ -       MPI         24        20   13.01    40.9      650561.78  MPI_Init
+ -       COM         24        20    0.95     3.0       47285.95  MAIN__
+ -       COM         24        20    0.00     0.0           2.25  boundary.boundarypsi_
+ -       COM         24        20    0.55     1.7       27318.24  cfdio.writedatafiles_
+ -       USR         24         1    0.00     0.0        1319.79  cfdio.writeplotfile_

@@ -1,0 +1,76 @@
+nvfortran -O3 -Minfo=all -acc -gpu=cc70,cuda11.6 -cuda -c nvtx.f90
+nvtxstartrange:
+     54, Memory copy idiom, loop replaced by call to __c_mcopy1
+nvfortran -O3 -Minfo=all -acc -gpu=cc70,cuda11.6 -cuda -c boundary.f90
+boundarypsi:
+     15, Loop not fused: function call before adjacent loop
+         Generated vector simd code for the loop
+     19, Memory set idiom, loop replaced by call to __c_mset8
+     25, Loop not fused: different loop trip count
+         Loop not vectorized: unprofitable for target
+         Loop unrolled 4 times
+     31, Generated vector simd code for the loop
+nvfortran -O3 -Minfo=all -acc -gpu=cc70,cuda11.6 -cuda -c jacobi.f90
+jacobistep_acc:
+     14, Generating present(psinew(:m+1,:n+1),psi(:m+1,:n+1))
+         Generating NVIDIA GPU code
+         15, !$acc loop gang, vector(128) collapse(2) ! blockidx%x threadidx%x
+         16,   ! blockidx%x threadidx%x collapsed
+deltasq:
+     35, Generating present(old(:,:),new(:,:))
+         Generating NVIDIA GPU code
+         36, !$acc loop gang, vector(128) collapse(2) ! blockidx%x threadidx%x
+             Generating reduction(+:deltasq)
+         37,   ! blockidx%x threadidx%x collapsed
+     35, Generating implicit copy(deltasq) [if not already present]
+nvfortran -O3 -Minfo=all -acc -gpu=cc70,cuda11.6 -cuda -c cfdio.f90
+writedatafiles:
+     26, Loop not vectorized/parallelized: contains call
+     31, FMA (fused multiply-add) instruction(s) generated
+     45, Loop not vectorized/parallelized: contains call
+colfunc:
+    119, FMA (fused multiply-add) instruction(s) generated
+nvfortran -O3 -Minfo=all -acc -gpu=cc70,cuda11.6 -cuda -c cfd.f90
+cfd:
+     98, Memory zero idiom, loop replaced by call to __c_mzero8
+    107, sum reduction inlined
+         Loop not fused: function call before adjacent loop
+         Generated vector simd code for the loop containing reductions
+         FMA (fused multiply-add) instruction(s) generated
+    120, Generating enter data create(psitmp(0:m+1,0:n+1))
+         Generating enter data copyin(psi(0:m+1,0:n+1))
+    121, Loop not vectorized/parallelized: potential early exits
+    146, Generating present(psitmp(:,:),psi(:,:))
+         Generating NVIDIA GPU code
+        147, !$acc loop gang, vector(128) collapse(2) ! blockidx%x threadidx%x
+        148,   ! blockidx%x threadidx%x collapsed
+    168, Generating exit data delete(psitmp(:,:))
+         Generating exit data copyout(psi(:,:))
+nvfortran -O3 -Minfo=all -acc -gpu=cc70,cuda11.6 -cuda -o exe nvtx.o boundary.o cfd.o cfdio.o jacobi.o -lnvToolsExt
+ Scale factor = 200, iterations =     50, tolerance =  0.1000E-03
+ Running CFD on     6400 x     6400 grid in serial 
+ 
+ Starting main loop ...
+ 
+ 
+ ... finished
+ 
+ After        50 iterations, error is  0.1190E-01
+ Time for     50 iterations was   1.239     seconds
+ Each individual iteration took  0.2478E-01 seconds
+ 
+ Writing output file ...
+  ... finished
+ 
+ CFD completed
+ 
+
+real	0m31.413s
+user	0m28.367s
+sys	0m1.758s
+Capture range started in the application.
+Generating '/scratch_local/slurm_job.15314370/nsys-report-eb38.qdstrm'
+Capture range ended in the application.
+[1/1] [0%                          ] report_acc_data_BEST.nsys-rep[1/1] [0%                          ] report_acc_data_BEST.nsys-rep[1/1] [==========49%               ] report_acc_data_BEST.nsys-rep[1/1] [==20%                       ] report_acc_data_BEST.nsys-rep[1/1] [===============66%          ] report_acc_data_BEST.nsys-rep[1/1] [================68%         ] report_acc_data_BEST.nsys-rep[1/1] [================69%         ] report_acc_data_BEST.nsys-rep[1/1] [================70%         ] report_acc_data_BEST.nsys-rep[1/1] [================71%         ] report_acc_data_BEST.nsys-rep[1/1] [=================72%        ] report_acc_data_BEST.nsys-rep[1/1] [=================73%        ] report_acc_data_BEST.nsys-rep[1/1] [=================74%        ] report_acc_data_BEST.nsys-rep[1/1] [==================75%       ] report_acc_data_BEST.nsys-rep[1/1] [==================76%       ] report_acc_data_BEST.nsys-rep[1/1] [==================77%       ] report_acc_data_BEST.nsys-rep[1/1] [==================78%       ] report_acc_data_BEST.nsys-rep[1/1] [===================79%      ] report_acc_data_BEST.nsys-rep[1/1] [========================100%] report_acc_data_BEST.nsys-rep[1/1] [========================100%] report_acc_data_BEST.nsys-rep
+Generated:
+    /g100_work/cin_staff/lbellen1/courses_genrepos/profiling-tutorial-mhpc/3.nsys/cfdcode-onegpu/solution/Fortran/5.acc-data/report_acc_data_BEST.nsys-rep

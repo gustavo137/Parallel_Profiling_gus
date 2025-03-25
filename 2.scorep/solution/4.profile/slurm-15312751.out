@@ -1,0 +1,63 @@
+ 
+Spack activated with install: /g100_work/cin_staff/lbellen1/spack-0.18.1/install , modules: /g100_work/cin_staff/lbellen1/spack-0.18.1/modules and cache: /g100_work/cin_staff/lbellen1/spack-0.18.1/cache
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Currently Loaded Modulefiles:
+ 1) profile/base(default)                                          
+ 2) profile/candidate                                              
+ 3) spack/preprod-0.18.1-01                                        
+ 4) autoload                                                       
+ 5) cubelib/4.6--intel--2021.6.0-fe6 <aL>                          
+ 6) cubew/4.6--intel--2021.6.0-pdx <aL>                            
+ 7) intel-oneapi-mpi/2021.6.0--intel--2021.6.0-mco <aL>            
+ 8) otf2/2.3--intel--2021.6.0-dcw <aL>                             
+ 9) scorep/7.0--intel-oneapi-mpi--2021.6.0--intel--2021.6.0-l52    
+10) scalasca/2.6--intel-oneapi-mpi--2021.6.0--intel--2021.6.0-txs  
+11) intel-oneapi-compilers/2021.4.0(default)                       
+
+Key:
+(symbolic-version)  <module-tag>  <aL>=auto-loaded  
+scorep --mpp=mpi --thread=none mpiifort -O2 -c boundary.f90
+scorep --mpp=mpi --thread=none mpiifort -O2 -c jacobi.f90
+scorep --mpp=mpi --thread=none mpiifort -O2 -c cfdio.f90
+scorep --mpp=mpi --thread=none mpiifort -O2 -c cfd.f90
+scorep --mpp=mpi --thread=none mpiifort -O2 -o exe boundary.o cfd.o cfdio.o jacobi.o 
+S=C=A=N: Scalasca 2.6 runtime summarization
+S=C=A=N: ./scorep_run experiment archive
+S=C=A=N: Tue Feb 11 14:15:41 2025: Collect start
+/opt/slurm/current/bin/srun --cpu-bind=cores --cpus-per-task=1 -n 20 exe 10 10000
+ Scale factor =  10, iterations =  10000, tolerance =   0.000    
+ Running CFD on  640 x  640 grid using   20 process(es)
+ 
+ Starting main loop ...
+ 
+ completed iteration         1000 , error =   1.244236405748120E-003
+ completed iteration         2000 , error =   7.346181860657300E-004
+ completed iteration         3000 , error =   5.386509631099590E-004
+ completed iteration         4000 , error =   4.313896552215980E-004
+ completed iteration         5000 , error =   3.624589784923449E-004
+ completed iteration         6000 , error =   3.138695713070711E-004
+ completed iteration         7000 , error =   2.775023168065301E-004
+ completed iteration         8000 , error =   2.491166501766695E-004
+ completed iteration         9000 , error =   2.262632604836315E-004
+ completed iteration        10000 , error =   2.074194765882739E-004
+ 
+ ... finished
+ 
+ After     10000 iterations, error is  0.2074E-03
+ Time for  10000 iterations was  0.3395     seconds
+ Each individual iteration took  0.3395E-04 seconds
+ 
+ Writing output file ...
+  ... finished
+ 
+ CFD completed
+ 
+S=C=A=N: Tue Feb 11 14:15:45 2025: Collect done (status=0) 4s
+S=C=A=N: ./scorep_run complete.
+done

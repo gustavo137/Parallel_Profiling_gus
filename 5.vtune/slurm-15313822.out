@@ -1,0 +1,130 @@
+ 
+:: WARNING: setvars.sh has already been run. Skipping re-execution.
+   To force a re-execution of setvars.sh, use the '--force' option.
+   Using '--force' can result in excessive use of your environment variables.
+  
+usage: source setvars.sh [--force] [--config=file] [--help] [...]
+  --force        Force setvars.sh to re-run, doing so may overload environment.
+  --config=file  Customize env vars using a setvars.sh configuration file.
+  --help         Display this help message and exit.
+  ...            Additional args are passed to individual env/vars.sh scripts
+                 and should follow this script's arguments.
+  
+  Some POSIX shells do not accept command-line options. In that case, you can pass
+  command-line options via the SETVARS_ARGS environment variable. For example:
+  
+  $ SETVARS_ARGS="ia32 --config=config.txt" ; export SETVARS_ARGS
+  $ . path/to/setvars.sh
+  
+  The SETVARS_ARGS environment variable is cleared on exiting setvars.sh.
+  
+vtune: Warning: Access to /proc/kallsyms file is limited. Consider changing /proc/sys/kernel/kptr_restrict to 0 to enable resolution of OS kernel and kernel module symbols.
+vtune: Warning: To profile kernel modules during the session, make sure they are available in the /lib/modules/kernel_version/ location.
+vtune: Peak bandwidth measurement started.
+vtune: Peak bandwidth measurement finished.
+vtune: Collection started. To stop the collection, either press CTRL-C or enter from another console window: vtune -r /g100_work/cin_staff/lbellen1/courses_genrepos/profiling-tutorial-mhpc/vtune/results-static -command stop.
+ 
+PRIME_NUMBER_OPENMP
+  FORTRAN90/OpenMP version
+ 
+  Number of processors available =       48
+  Number of threads =                    12
+ 
+PRIME_NUMBER_SWEEP_OPENMP
+  Call PRIME_NUMBER to count the primes from 1 to N.
+ 
+         N        Pi          Time
+ 
+   1000000     78498   15.1818    
+ 
+PRIME_NUMBER_OPENMP
+  Normal end of execution.
+vtune: Collection stopped.
+vtune: Using result path `/g100_work/cin_staff/lbellen1/courses_genrepos/profiling-tutorial-mhpc/vtune/results-static'
+vtune: Executing actions  0 %                                                  vtune: Executing actions  0 % Finalizing results                               vtune: Executing actions  0 % Finalizing the result                            vtune: Executing actions  0 % Clearing the database                            vtune: Executing actions  7 % Clearing the database                            vtune: Executing actions  7 % Loading raw data to the database                 vtune: Executing actions  7 % Loading 'systemcollector-18843-r513c05n01.sc' filvtune: Executing actions 12 % Loading 'systemcollector-18843-r513c05n01.sc' filvtune: Executing actions 12 % Loading '18993.perf' file                        vtune: Executing actions 12 % Loading '18993.stat.perf' file                   vtune: Executing actions 12 % Loading 'userapicollector-18993-13efd041.trace' fvtune: Executing actions 12 % Updating precomputed scalar metrics              vtune: Executing actions 14 % Updating precomputed scalar metrics              vtune: Executing actions 14 % Processing profile metrics and debug information vtune: Executing actions 19 % Processing profile metrics and debug information vtune: Executing actions 19 % Setting data model parameters                    vtune: Executing actions 19 % Resolving module symbols                         vtune: Executing actions 19 % Resolving information for dangling locations     vtune: Executing actions 19 % Resolving information for `libpthread-2.28.so'   vtune: Executing actions 19 % Resolving information for `prime_static.exe'     vtune: Executing actions 19 % Resolving information for `ld-2.28.so'           vtune: Executing actions 19 % Resolving information for `libittnotify_collectorvtune: Executing actions 19 % Resolving information for `libc-2.28.so'         vtune: Executing actions 19 % Resolving information for `libiomp5.so'          
+vtune: Warning: Cannot locate debugging information for file `/usr/lib64/libpthread-2.28.so'.
+vtune: Warning: Cannot locate debugging information for file `/g100/prod/opt/compilers/intel/oneapi-2022/binary/vtune/2022.0.0/lib64/runtime/libittnotify_collector.so'.
+vtune: Warning: Cannot locate debugging information for file `/usr/lib64/libc-2.28.so'.
+vtune: Executing actions 20 % Resolving information for `libiomp5.so'          vtune: Executing actions 21 % Resolving information for `libiomp5.so'          vtune: Executing actions 22 % Resolving information for `libiomp5.so'          vtune: Executing actions 22 % Resolving bottom user stack information          vtune: Executing actions 23 % Resolving bottom user stack information          vtune: Executing actions 23 % Resolving thread name information                vtune: Executing actions 24 % Resolving thread name information                vtune: Executing actions 24 % Resolving call target names for dynamic code     vtune: Executing actions 25 % Resolving call target names for dynamic code     vtune: Executing actions 25 % Resolving interrupt name information             vtune: Executing actions 26 % Resolving interrupt name information             vtune: Executing actions 26 % Processing profile metrics and debug information vtune: Executing actions 27 % Processing profile metrics and debug information vtune: Executing actions 28 % Processing profile metrics and debug information vtune: Executing actions 29 % Processing profile metrics and debug information vtune: Executing actions 30 % Processing profile metrics and debug information vtune: Executing actions 31 % Processing profile metrics and debug information vtune: Executing actions 32 % Processing profile metrics and debug information vtune: Executing actions 33 % Processing profile metrics and debug information vtune: Executing actions 34 % Processing profile metrics and debug information vtune: Executing actions 35 % Processing profile metrics and debug information vtune: Executing actions 35 % Preparing output tree                            vtune: Executing actions 35 % Parsing columns in input tree                    vtune: Executing actions 35 % Creating top-level columns                       vtune: Executing actions 36 % Creating top-level columns                       vtune: Executing actions 36 % Creating top-level rows                          vtune: Executing actions 37 % Creating top-level rows                          vtune: Executing actions 37 % Preparing output tree                            vtune: Executing actions 37 % Parsing columns in input tree                    vtune: Executing actions 37 % Creating top-level columns                       vtune: Executing actions 38 % Creating top-level columns                       vtune: Executing actions 38 % Creating top-level rows                          vtune: Executing actions 39 % Creating top-level rows                          vtune: Executing actions 39 % Preparing output tree                            vtune: Executing actions 39 % Parsing columns in input tree                    vtune: Executing actions 39 % Creating top-level columns                       vtune: Executing actions 39 % Creating top-level rows                          vtune: Executing actions 40 % Creating top-level rows                          vtune: Executing actions 40 % Preparing output tree                            vtune: Executing actions 40 % Parsing columns in input tree                    vtune: Executing actions 40 % Creating top-level columns                       vtune: Executing actions 41 % Creating top-level columns                       vtune: Executing actions 41 % Creating top-level rows                          vtune: Executing actions 42 % Creating top-level rows                          vtune: Executing actions 43 % Creating top-level rows                          vtune: Executing actions 44 % Creating top-level rows                          vtune: Executing actions 44 % Preparing output tree                            vtune: Executing actions 44 % Parsing columns in input tree                    vtune: Executing actions 44 % Creating top-level columns                       vtune: Executing actions 45 % Creating top-level columns                       vtune: Executing actions 45 % Creating top-level rows                          vtune: Executing actions 46 % Creating top-level rows                          vtune: Executing actions 46 % Preparing output tree                            vtune: Executing actions 46 % Parsing columns in input tree                    vtune: Executing actions 46 % Creating top-level columns                       vtune: Executing actions 46 % Creating top-level rows                          vtune: Executing actions 47 % Creating top-level rows                          vtune: Executing actions 47 % Preparing output tree                            vtune: Executing actions 47 % Parsing columns in input tree                    vtune: Executing actions 48 % Parsing columns in input tree                    vtune: Executing actions 48 % Creating top-level columns                       vtune: Executing actions 48 % Creating top-level rows                          vtune: Executing actions 49 % Creating top-level rows                          vtune: Executing actions 49 % Preparing output tree                            vtune: Executing actions 49 % Parsing columns in input tree                    vtune: Executing actions 49 % Creating top-level columns                       vtune: Executing actions 50 % Creating top-level columns                       vtune: Executing actions 50 % Creating top-level rows                          vtune: Executing actions 50 % Preparing output tree                            vtune: Executing actions 50 % Parsing columns in input tree                    vtune: Executing actions 50 % Creating top-level columns                       vtune: Executing actions 50 % Creating top-level rows                          vtune: Executing actions 50 % Preparing output tree                            vtune: Executing actions 50 % Parsing columns in input tree                    vtune: Executing actions 50 % Creating top-level columns                       vtune: Executing actions 50 % Creating top-level rows                          vtune: Executing actions 50 % Preparing output tree                            vtune: Executing actions 50 % Parsing columns in input tree                    vtune: Executing actions 50 % Creating top-level columns                       vtune: Executing actions 50 % Creating top-level rows                          vtune: Executing actions 50 % Preparing output tree                            vtune: Executing actions 50 % Parsing columns in input tree                    vtune: Executing actions 50 % Creating top-level columns                       vtune: Executing actions 50 % Creating top-level rows                          vtune: Executing actions 50 % Preparing output tree                            vtune: Executing actions 50 % Parsing columns in input tree                    vtune: Executing actions 50 % Creating top-level columns                       vtune: Executing actions 50 % Creating top-level rows                          vtune: Executing actions 50 % Preparing output tree                            vtune: Executing actions 50 % Parsing columns in input tree                    vtune: Executing actions 50 % Creating top-level columns                       vtune: Executing actions 50 % Creating top-level rows                          vtune: Executing actions 50 % Preparing output tree                            vtune: Executing actions 50 % Parsing columns in input tree                    vtune: Executing actions 50 % Creating top-level columns                       vtune: Executing actions 50 % Creating top-level rows                          vtune: Executing actions 50 % Preparing output tree                            vtune: Executing actions 50 % Parsing columns in input tree                    vtune: Executing actions 50 % Creating top-level columns                       vtune: Executing actions 50 % Creating top-level rows                          vtune: Executing actions 50 % Preparing output tree                            vtune: Executing actions 50 % Parsing columns in input tree                    vtune: Executing actions 50 % Creating top-level columns                       vtune: Executing actions 50 % Creating top-level rows                          vtune: Executing actions 50 % Preparing output tree                            vtune: Executing actions 50 % Parsing columns in input tree                    vtune: Executing actions 50 % Creating top-level columns                       vtune: Executing actions 50 % Creating top-level rows                          vtune: Executing actions 50 % Preparing output tree                            vtune: Executing actions 50 % Parsing columns in input tree                    vtune: Executing actions 50 % Creating top-level columns                       vtune: Executing actions 50 % Creating top-level rows                          vtune: Executing actions 50 % Preparing output tree                            vtune: Executing actions 50 % Parsing columns in input tree                    vtune: Executing actions 50 % Creating top-level columns                       vtune: Executing actions 50 % Creating top-level rows                          vtune: Executing actions 50 % Preparing output tree                            vtune: Executing actions 50 % Parsing columns in input tree                    vtune: Executing actions 50 % Creating top-level columns                       vtune: Executing actions 50 % Creating top-level rows                          vtune: Executing actions 50 % Preparing output tree                            vtune: Executing actions 50 % Parsing columns in input tree                    vtune: Executing actions 50 % Creating top-level columns                       vtune: Executing actions 50 % Creating top-level rows                          vtune: Executing actions 50 % Preparing output tree                            vtune: Executing actions 50 % Parsing columns in input tree                    vtune: Executing actions 50 % Creating top-level columns                       vtune: Executing actions 50 % Creating top-level rows                          vtune: Executing actions 50 % Preparing output tree                            vtune: Executing actions 50 % Parsing columns in input tree                    vtune: Executing actions 50 % Creating top-level columns                       vtune: Executing actions 50 % Creating top-level rows                          vtune: Executing actions 50 % Setting data model parameters                    vtune: Executing actions 50 % Precomputing frequently used data                vtune: Executing actions 50 % Precomputing frequently used data                vtune: Executing actions 50 % Updating precomputed scalar metrics              vtune: Executing actions 50 % Discarding redundant overtime data               vtune: Executing actions 50 % Saving the result                                vtune: Executing actions 50 % Generating a report                              vtune: Executing actions 50 % Setting data model parameters                    vtune: Executing actions 75 % Setting data model parameters                    vtune: Executing actions 75 % Generating a report                              Elapsed Time: 15.217s
+    SP GFLOPS: 0.000
+    DP GFLOPS: 0.000
+    x87 GFLOPS: 5.005
+    CPI Rate: 0.899
+    Average CPU Frequency: 3.093 GHz
+    Total Thread Count: 12
+Effective CPU Utilization: 13.4%
+ | The metric value is low, which may signal a poor logical CPU cores
+ | utilization caused by load imbalance, threading runtime overhead, contended
+ | synchronization, or thread/process underutilization. Explore sub-metrics to
+ | estimate the efficiency of MPI and OpenMP parallelism or run the Locks and
+ | Waits analysis to identify parallel bottlenecks for other parallel runtimes.
+ |
+    Average Effective CPU Utilization: 6.450 out of 48
+    Serial Time (outside parallel regions): 0.071s (0.5%)
+
+        Top Serial Hotspots (outside parallel regions)
+        Function                     Module                     Serial CPU Time
+        ---------------------------  -------------------------  ---------------
+        [Outside any known module]   [Unknown]                           0.050s
+        func@0x88330                 libittnotify_collector.so           0.004s
+        [Loop@0x136af8 in _dl_addr]  libc-2.28.so                        0.002s
+        for__interp_fmt              prime_static.exe                    0.002s
+    Parallel Region Time: 15.146s (99.5%)
+        Estimated Ideal Time: 8.232s (54.1%)
+        OpenMP Potential Gain: 6.914s (45.4%)
+         | The time wasted on load imbalance or parallel work arrangement is
+         | significant and negatively impacts the application performance and
+         | scalability. Explore OpenMP regions with the highest metric values.
+         | Make sure the workload of the regions is enough and the loop schedule
+         | is optimal.
+         |
+Memory Bound: 0.0% of Pipeline Slots
+    Cache Bound: 0.4% of Clockticks
+    DRAM Bound: 0.0% of Clockticks
+        DRAM Bandwidth Bound: 0.0% of Elapsed Time
+    NUMA: % of Remote Accesses: 0.0%
+
+    Bandwidth Utilization
+    Bandwidth Domain             Platform Maximum  Observed Maximum  Average  % of Elapsed Time with High BW Utilization(%)
+    ---------------------------  ----------------  ----------------  -------  ---------------------------------------------
+    DRAM, GB/sec                 238                          5.400    0.013                                           0.0%
+    DRAM Single-Package, GB/sec  119                          5.200    0.012                                           0.0%
+Vectorization: 0.0% of Packed FP Operations
+    Instruction Mix
+        SP FLOPs: 0.0% of uOps
+            Packed: 0.0% from SP FP
+                128-bit: 0.0% from SP FP
+                256-bit: 0.0% from SP FP
+                512-bit: 0.0% from SP FP
+            Scalar: 0.0% from SP FP
+        DP FLOPs: 0.0% of uOps
+            Packed: 0.0% from DP FP
+                128-bit: 0.0% from DP FP
+                256-bit: 0.0% from DP FP
+                512-bit: 0.0% from DP FP
+            Scalar: 0.0% from DP FP
+        x87 FLOPs: 11.4% of uOps
+        Non-FP: 88.6% of uOps
+    FP Arith/Mem Rd Instr. Ratio: 28.818
+    FP Arith/Mem Wr Instr. Ratio: 167.879
+Collection and Platform Info
+    Application Command Line: ./prime_static.exe 
+    Operating System: 4.18.0-240.el8.x86_64 \S Kernel \r on an \m 
+    Computer Name: r513c05n01
+    Result Size: 107.4 MB 
+    Collection start time: 13:45:02 11/02/2025 UTC
+    Collection stop time: 13:45:17 11/02/2025 UTC
+    Collector Type: Driverless Perf per-process sampling
+    CPU
+        Name: Intel(R) Xeon(R) Processor code named Cascadelake
+        Frequency: 2.394 GHz
+        Logical CPU Count: 48
+        Max DRAM Single-Package Bandwidth: 119.000 GB/s
+
+If you want to skip descriptions of detected performance issues in the report,
+enter: vtune -report summary -report-knob show-issues=false -r <my_result_dir>.
+Alternatively, you may view the report in the csv format: vtune -report
+<report_name> -format=csv.
+vtune: Executing actions 100 % Generating a report                             vtune: Executing actions 100 % done                                            
+[SYSFS][INFO] Try to restore the sysfs files to the system state configuration!
+[SYSFS][INFO] The sysfs files have been restored to the system state configuration! Exit!

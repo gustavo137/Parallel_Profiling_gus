@@ -1,0 +1,24 @@
+Unloading profile/base
+  ERROR: Module evaluation aborted
+mpif90 -acc -gpu=cc80 -g -fast -cuda -lnvToolsExt -c boundary.f90
+mpif90 -acc -gpu=cc80 -g -fast -cuda -lnvToolsExt -c jacobi.f90
+mpif90 -acc -gpu=cc80 -g -fast -cuda -lnvToolsExt -c cfdio.f90
+mpif90 -acc -gpu=cc80 -g -fast -cuda -lnvToolsExt -c cfd.f90
+mpif90 -acc -gpu=cc80 -g -fast -cuda -lnvToolsExt -o exe boundary.o cfd.o cfdio.o jacobi.o 
+--------------------------------------------------------------------------
+mpirun was unable to find the specified executable file, and therefore
+did not launch the job.  This error was first reported for process
+rank 0; it may have occurred for other processes as well.
+
+NOTE: A common cause for this error is misspelling a mpirun command
+      line parameter option (remember that mpirun interprets the first
+      unrecognized command line token as the executable).
+
+Node:       lrdn0724
+Executable: cfd
+--------------------------------------------------------------------------
+4 total processes failed to start
+Generating '/dev/shm/nsys-report-a5e1.qdstrm'
+[1/1] [0%                          ] report1.nsys-rep[1/1] [0%                          ] report1.nsys-rep[1/1] [=====31%                    ] report1.nsys-rep[1/1] [==========49%               ] report1.nsys-rep[1/1] [================68%         ] report1.nsys-rep[1/1] [================69%         ] report1.nsys-rep[1/1] [================70%         ] report1.nsys-rep[1/1] [==================77%       ] report1.nsys-rep[1/1] [==================78%       ] report1.nsys-rep[1/1] [===================79%      ] report1.nsys-rep[1/1] [===================80%      ] report1.nsys-rep[1/1] [===================81%      ] report1.nsys-rep[1/1] [===================82%      ] report1.nsys-rep[1/1] [====================83%     ] report1.nsys-rep[1/1] [=====================88%    ] report1.nsys-rep[1/1] [=====================89%    ] report1.nsys-rep[1/1] [======================90%   ] report1.nsys-rep[1/1] [======================91%   ] report1.nsys-rep[1/1] [======================92%   ] report1.nsys-rep[1/1] [=======================93%  ] report1.nsys-rep[1/1] [=======================94%  ] report1.nsys-rep[1/1] [=======================95%  ] report1.nsys-rep[1/1] [=======================96%  ] report1.nsys-rep[1/1] [========================97% ] report1.nsys-rep[1/1] [========================98% ] report1.nsys-rep[1/1] [========================100%] report1.nsys-rep[1/1] [========================100%] report1.nsys-rep[1/1] [========================100%] report1.nsys-rep
+Generated:
+    /leonardo_scratch/large/userinternal/lbellen1/courses/profiling-tutorial-mhpc/3.nsys/cfdcode-multigpu/solution/Fortran/mpi-nogpudirect/report1.nsys-rep

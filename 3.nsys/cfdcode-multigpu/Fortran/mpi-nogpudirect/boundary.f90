@@ -1,0 +1,122 @@
+module boundary
+
+  use mpi
+
+  implicit none
+
+contains
+
+subroutine boundarypsi(psi, m, n, b, h, w, comm)
+
+  integer :: m, n, b, h, w, comm
+  
+  double precision, dimension(0:m+1, 0:n+1) :: psi
+
+  integer :: size, rank, ierr, i, j
+  integer :: jstart, jstop
+
+  call mpi_comm_size(comm, size, ierr)
+  call mpi_comm_rank(comm, rank, ierr)
+
+  jstart = n*rank + 1
+  jstop  = jstart + n - 1
+
+!  Set the boundary conditions on the bottom edge
+
+  if (rank == 0) then
+
+     do i = b+1, b+w-1
+        psi(i, 0) = float(i-b)
+     end do
+
+     do i = b+w, m
+        psi(i, 0) = float(w)
+     end do
+
+  end if
+
+!  Set the boundary conditions on the right hand side
+
+  do j = 1, h
+
+     if (j .ge. jstart .and. j .le. jstop) then
+        psi(m+1,j-jstart+1) = float(w)
+     end if
+
+  end do
+
+  do j = h+1, h+w-1
+
+     if (j .ge. jstart .and. j .le. jstop) then
+        psi(m+1,j-jstart+1) = float(w-j+h)
+     end if
+
+  end do
+
+end subroutine boundarypsi
+
+subroutine haloswap(x, m, n, comm, rank, size)
+
+  integer :: m, n, comm, rank, uprank, dnrank, size, ierr
+
+  double precision, dimension(0:m+1, 0:n+1) :: x
+
+  integer, parameter :: tag = 1
+
+  integer, dimension(MPI_STATUS_SIZE) :: status
+
+!  No need to halo swap for serial code
+
+  if (size > 1) then
+
+!  Send upper boundaries and receive lower ones
+  
+     if (rank == 0) then
+        !$acc update self(x(1:m,n))
+        call mpi_send(x(1,n), m, MPI_DOUBLE_PRECISION, rank+1, &
+                     tag, comm, ierr)
+
+     else if (rank == size-1) then
+
+        call mpi_recv(x(1,0), m, MPI_DOUBLE_PRECISION, rank-1, &
+                      tag, comm, status, ierr)
+        !$acc update device(x(1:m,0))
+
+     else
+
+        !$acc update self(x(1:m,n))
+        call mpi_sendrecv(x(1,n), m, MPI_DOUBLE_PRECISION, rank+1, tag, &
+                          x(1,0), m, MPI_DOUBLE_PRECISION, rank-1, tag, &
+                          comm, status, ierr)
+        !$acc update device(x(1:m,0))
+
+     end if
+  
+!  Send lower boundaries and receive upper ones
+
+     if (rank == 0) then
+
+        call mpi_recv(x(1,n+1), m, MPI_DOUBLE_PRECISION, rank+1, &
+                      tag, comm, status, ierr)
+        !$acc update device(x(1:m,n+1))
+
+     else if (rank == size-1) then
+
+        !$acc update self(x(1:m,1))
+        call mpi_send(x(1,1), m, MPI_DOUBLE_PRECISION, rank-1, &
+                     tag, comm, ierr)
+
+     else
+
+        !$acc update self(x(1:m,1))
+        call mpi_sendrecv(x(1,1)  , m, MPI_DOUBLE_PRECISION, rank-1, tag, &
+                         x(1,n+1), m, MPI_DOUBLE_PRECISION, rank+1, tag, &
+                         comm, status, ierr)
+        !$acc update device(x(1:m,n+1))
+     end if
+
+end if
+
+end subroutine haloswap
+
+end module boundary

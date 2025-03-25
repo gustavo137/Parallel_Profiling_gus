@@ -1,0 +1,140 @@
+Unloading profile/base
+  ERROR: Module evaluation aborted
+mpif90 -g -fast -c boundary.f90
+mpif90 -g -fast -c jacobi.f90
+mpif90 -g -fast -c cfdio.f90
+mpif90 -g -fast -c cfd.f90
+mpif90 -g -fast -o exe boundary.o cfd.o cfdio.o jacobi.o 
+ Scale factor =  50, iterations =    100
+ Irrotational flow
+ Scale factor =  50, iterations =    100
+ Running CFD on **** x 1600 grid using    4 process(es)
+ Scale factor =  50, iterations =    100
+ Scale factor =  50, iterations =    100
+ Scale factor =  50, iterations =    100
+ 
+ Starting main loop ...
+ 
+ completed iteration             1
+ completed iteration             2
+ completed iteration             3
+ completed iteration             4
+ completed iteration             5
+ completed iteration             6
+ completed iteration             7
+ completed iteration             8
+ completed iteration             9
+ completed iteration            10
+ completed iteration            11
+ completed iteration            12
+ completed iteration            13
+ completed iteration            14
+ completed iteration            15
+ completed iteration            16
+ completed iteration            17
+ completed iteration            18
+ completed iteration            19
+ completed iteration            20
+ completed iteration            21
+ completed iteration            22
+ completed iteration            23
+ completed iteration            24
+ completed iteration            25
+ completed iteration            26
+ completed iteration            27
+ completed iteration            28
+ completed iteration            29
+ completed iteration            30
+ completed iteration            31
+ completed iteration            32
+ completed iteration            33
+ completed iteration            34
+ completed iteration            35
+ completed iteration            36
+ completed iteration            37
+ completed iteration            38
+ completed iteration            39
+ completed iteration            40
+ completed iteration            41
+ completed iteration            42
+ completed iteration            43
+ completed iteration            44
+ completed iteration            45
+ completed iteration            46
+ completed iteration            47
+ completed iteration            48
+ completed iteration            49
+ completed iteration            50
+ completed iteration            51
+ completed iteration            52
+ completed iteration            53
+ completed iteration            54
+ completed iteration            55
+ completed iteration            56
+ completed iteration            57
+ completed iteration            58
+ completed iteration            59
+ completed iteration            60
+ completed iteration            61
+ completed iteration            62
+ completed iteration            63
+ completed iteration            64
+ completed iteration            65
+ completed iteration            66
+ completed iteration            67
+ completed iteration            68
+ completed iteration            69
+ completed iteration            70
+ completed iteration            71
+ completed iteration            72
+ completed iteration            73
+ completed iteration            74
+ completed iteration            75
+ completed iteration            76
+ completed iteration            77
+ completed iteration            78
+ completed iteration            79
+ completed iteration            80
+ completed iteration            81
+ completed iteration            82
+ completed iteration            83
+ completed iteration            84
+ completed iteration            85
+ completed iteration            86
+ completed iteration            87
+ completed iteration            88
+ completed iteration            89
+ completed iteration            90
+ completed iteration            91
+ completed iteration            92
+ completed iteration            93
+ completed iteration            94
+ completed iteration            95
+ completed iteration            96
+ completed iteration            97
+ completed iteration            98
+ completed iteration            99
+ completed iteration           100
+ 
+ ... finished
+ 
+ After       100 iterations, error is  0.7155E-02
+ Time for    100 iterations was   5.211     seconds
+ Each individual iteration took  0.5211E-01 seconds
+ 
+ Writing output file ...
+  ... finished
+ 
+ CFD completed
+ 
+Generating '/tmp/nsys-report-e9b1.qdstrm'
+[1/1] [0%                          ] report-mpi.nsys-rep[1/1] [0%                          ] report-mpi.nsys-rep[1/1] [5%                          ] report-mpi.nsys-rep[1/1] [6%                          ] report-mpi.nsys-rep[1/1] [===========52%              ] report-mpi.nsys-rep[1/1] [===========53%              ] report-mpi.nsys-rep[1/1] [============54%             ] report-mpi.nsys-rep[1/1] [============55%             ] report-mpi.nsys-rep[1/1] [============56%             ] report-mpi.nsys-rep[1/1] [============57%             ] report-mpi.nsys-rep[1/1] [=============58%            ] report-mpi.nsys-rep[1/1] [=============59%            ] report-mpi.nsys-rep[1/1] [=============60%            ] report-mpi.nsys-rep[1/1] [==============61%           ] report-mpi.nsys-rep[1/1] [==============62%           ] report-mpi.nsys-rep[1/1] [===============67%          ] report-mpi.nsys-rep[1/1] [=================72%        ] report-mpi.nsys-rep[1/1] [==================77%       ] report-mpi.nsys-rep[1/1] [===================81%      ] report-mpi.nsys-rep[1/1] [=====================86%    ] report-mpi.nsys-rep[1/1] [======================91%   ] report-mpi.nsys-rep[1/1] [=======================96%  ] report-mpi.nsys-rep[1/1] [========================99% ] report-mpi.nsys-rep[1/1] [========================100%] report-mpi.nsys-rep[1/1] [========================100%] report-mpi.nsys-rep
+Generated:
+    /leonardo_scratch/large/userinternal/lbellen1/courses/profiling-tutorial-mhpc/3.nsys/cfdcode-multigpu/solution/Fortran/mpi/report-mpi.nsys-rep
+
+WARNING: Existing SQLite export found: report-mpi.sqlite
+         File is older than input file: report-mpi.nsys-rep
+         Use --force-export=true to update export file.
+
+usage: nsys stats [<args>] <input-file>
+Try 'nsys stats --help' for more information.

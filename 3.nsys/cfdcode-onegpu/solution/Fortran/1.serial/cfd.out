@@ -1,0 +1,17 @@
+ Scale factor = 200, iterations =     50, tolerance =  0.1000E-03
+ Running CFD on     6400 x     6400 grid in serial 
+ 
+ Starting main loop ...
+ 
+ 
+ ... finished
+ 
+ After        50 iterations, error is  0.1190E-01
+ Time for     50 iterations was   8.326     seconds
+ Each individual iteration took  0.1665     seconds
+ 
+ Writing output file ...
+  ... finished
+ 
+ CFD completed
+ 
