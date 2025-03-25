@@ -1,0 +1,23 @@
+To use the certificate, the user should activate the ssh-agent running:
+
+$ eval $(ssh-agent)
+Notice: if the agent is already activated, this step is not necessary. If you observe anomalous behaviours, try if jumping this step solves the issue.
+
+
+
+At this point, to obtain the certificate run:
+
+$ step ssh login '<user-email>' --provisioner cineca-hpc
+step ssh login 'gparedes@ictp.it' --provisioner cineca-hpc
+
+the command will report on the shell an output like the following one:
+
+the use 
+
+ssh <username>@login.marconi.cineca.it
+ssh <username>@login.g100.cineca.it
+ssh <username>@login.leonardo.cineca.it
+
+ ssh gparedes@login.leonardo.cineca.it
+
+see infor https://wiki.u-gov.it/confluence/display/SCAIUS/UG3.2.2%3A+LEONARDO+DCGP+UserGuide

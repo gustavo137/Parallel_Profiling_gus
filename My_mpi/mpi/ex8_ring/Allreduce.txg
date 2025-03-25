@@ -1,0 +1,8 @@
+Process 0 started with vector [0, 0, 0, 0]
+Process 2 started with vector [2, 2, 2, 2]
+Process 1 started with vector [1, 1, 1, 1]
+Process 3 started with vector [3, 3, 3, 3]
+Process 3 has final vector [6, 6, 6, 6]
+Process 1 has final vector [6, 6, 6, 6]
+Process 2 has final vector [6, 6, 6, 6]
+Process 0 has final vector [6, 6, 6, 6]

@@ -1,0 +1,4 @@
+Duration for 'Sending vector using MPI_Send': 281 mDuDuration for 'Sending vector using MPI_Put (one-sided communication)': 229 ms
+Min time: 0 ms
+Max time: 283 ms
+Average time: 141 ms

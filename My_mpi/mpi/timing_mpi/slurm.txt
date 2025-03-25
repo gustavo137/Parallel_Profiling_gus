@@ -1,0 +1,46 @@
+Running script timer mpi
+Loading openmpi/4.1.6--gcc--12.2.0
+  Loading requirement: gcc/12.2.0
+[lrdn3439:3151366:0:3151366] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x146a70001000)
+==== backtrace (tid:3151366) ====
+ 0  /lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x146a6b2b8edc]
+ 1  /lib64/libucs.so.0(+0x2b0bc) [0x146a6b2b90bc]
+ 2  /lib64/libucs.so.0(+0x2b28a) [0x146a6b2b928a]
+ 3  /lib64/ucx/libuct_ib.so.0(uct_rc_mlx5_ep_am_short+0x38d) [0x146a68c8f6dd]
+ 4  /lib64/libucp.so.0(+0x78b50) [0x146a6b9b5b50]
+ 5  /lib64/libucp.so.0(+0x93cd9) [0x146a6b9d0cd9]
+ 6  /lib64/libucp.so.0(ucp_wireup_replay_pending_requests+0x30) [0x146a6b9d0d60]
+ 7  /lib64/libucp.so.0(+0x90d14) [0x146a6b9cdd14]
+ 8  /lib64/libucs.so.0(+0x2103b) [0x146a6b2af03b]
+ 9  /lib64/libucp.so.0(ucp_worker_progress+0x6a) [0x146a6b98081a]
+10  /leonardo/prod/opt/libraries/openmpi/4.1.6/gcc--12.2.0/lib/openmpi/mca_pml_ucx.so(mca_pml_ucx_send+0x157) [0x146a701c8fa7]
+11  /leonardo/prod/opt/libraries/openmpi/4.1.6/gcc--12.2.0/lib/libmpi.so.40(PMPI_Send+0x2f) [0x146a7573d2bf]
+12  ./exampleSpeciaCastBytes.x() [0x4025a6]
+13  /lib64/libc.so.6(__libc_start_main+0xe5) [0x146a74a5ed85]
+14  ./exampleSpeciaCastBytes.x() [0x40237e]
+=================================
+[lrdn3439:3151366] *** Process received signal ***
+[lrdn3439:3151366] Signal: Segmentation fault (11)
+[lrdn3439:3151366] Signal code:  (-6)
+[lrdn3439:3151366] Failing at address: 0x1eaf400301606
+[lrdn3439:3151366] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x146a74dfccf0]
+[lrdn3439:3151366] [ 1] /lib64/ucx/libuct_ib.so.0(uct_rc_mlx5_ep_am_short+0x38d)[0x146a68c8f6dd]
+[lrdn3439:3151366] [ 2] /lib64/libucp.so.0(+0x78b50)[0x146a6b9b5b50]
+[lrdn3439:3151366] [ 3] /lib64/libucp.so.0(+0x93cd9)[0x146a6b9d0cd9]
+[lrdn3439:3151366] [ 4] /lib64/libucp.so.0(ucp_wireup_replay_pending_requests+0x30)[0x146a6b9d0d60]
+[lrdn3439:3151366] [ 5] /lib64/libucp.so.0(+0x90d14)[0x146a6b9cdd14]
+[lrdn3439:3151366] [ 6] /lib64/libucs.so.0(+0x2103b)[0x146a6b2af03b]
+[lrdn3439:3151366] [ 7] /lib64/libucp.so.0(ucp_worker_progress+0x6a)[0x146a6b98081a]
+[lrdn3439:3151366] [ 8] /leonardo/prod/opt/libraries/openmpi/4.1.6/gcc--12.2.0/lib/openmpi/mca_pml_ucx.so(mca_pml_ucx_send+0x157)[0x146a701c8fa7]
+[lrdn3439:3151366] [ 9] /leonardo/prod/opt/libraries/openmpi/4.1.6/gcc--12.2.0/lib/libmpi.so.40(PMPI_Send+0x2f)[0x146a7573d2bf]
+[lrdn3439:3151366] [10] ./exampleSpeciaCastBytes.x[0x4025a6]
+[lrdn3439:3151366] [11] /lib64/libc.so.6(__libc_start_main+0xe5)[0x146a74a5ed85]
+[lrdn3439:3151366] [12] ./exampleSpeciaCastBytes.x[0x40237e]
+[lrdn3439:3151366] *** End of error message ***
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun noticed that process rank 0 with PID 0 on node lrdn3439 exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------

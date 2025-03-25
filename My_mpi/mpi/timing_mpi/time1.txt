@@ -1,0 +1,5 @@
+Duration for 'Sending vector in one MPI_Send': 420 ms
+Duration for 'Sending vector element by element': 29622 ms
+Min time: 0 ms
+Max time: 420 ms
+Average time: 205.5 ms

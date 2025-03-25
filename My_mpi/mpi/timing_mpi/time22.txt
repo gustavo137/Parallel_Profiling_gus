@@ -1,0 +1,4 @@
+Duration for 'Sending double vector as bytes': 32 ms
+Min time: 19 ms
+Max time: 32 ms
+Average time: 25.5 ms

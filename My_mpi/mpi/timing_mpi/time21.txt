@@ -1,0 +1,4 @@
+Duration for 'Sending double vector using template specialization': 22 ms
+Min time: 22 ms
+Max time: 22 ms
+Average time: 22 ms
