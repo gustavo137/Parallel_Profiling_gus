@@ -1,0 +1,23 @@
+Repo:
+https://gitlab.hpc.cineca.it/training/profiling-tutorial-mhpc/
+
+Score-P: https://hackmd.io/a4c5VRHqRI6gIV5w3MKGgA
+
+This link is to woek in:
+~~~
+/g100_work/ICT24_MHPC_1/gustavo/profiling-tutorial-mhpc/2.scorep
+~~~
+inside of galileo 100 
+
+for the second day we need to work in 
+/g100_work/ICT24_MHPC_1/gustavo/profiling-tutorial-mhpc/3.nsys/cfdcode-onegpu/Fortran/1.serial
+
+sumit the job and copy to my local the report_serial.nsys-rep
+
+open nsys-ui and open the file report_serial.nsys-rep
+
+In this link there is a jacobi whit a lot of info about parallel stuf 
+https://github.com/davidhenty/cfd/tree/master
+
+For NCCL guide 
+https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/usage.html
